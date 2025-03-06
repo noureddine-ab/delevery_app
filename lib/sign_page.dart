@@ -12,6 +12,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
 
   // Variable to store the selected role
   String? _selectedRole;
@@ -22,6 +23,7 @@ class _SignUpPageState extends State<SignUpPage> {
     String email = _emailController.text;
     String password = _passwordController.text;
     String phone = _phoneController.text;
+    String location = _locationController.text; 
 
     // Validate input fields
     if (name.isEmpty ||
@@ -104,6 +106,15 @@ class _SignUpPageState extends State<SignUpPage> {
                   prefixIcon: Icon(Icons.phone),
                 ),
                 keyboardType: TextInputType.phone,
+              ),
+              SizedBox(height: 20),
+              TextField(
+                controller: _locationController,
+                decoration: InputDecoration(
+                  labelText: 'Location',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.location_pin),
+                ),
               ),
               SizedBox(height: 20),
 

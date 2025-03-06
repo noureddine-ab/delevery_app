@@ -17,10 +17,7 @@ class _LoginPageState extends State<LoginPage> {
     String password = _passwordController.text;
 
     // Perform login logic here (e.g., validate credentials)
-    if (email.isNotEmpty && password.isNotEmpty) {
-      print('Email: $email, Password: $password');
-      // You can add your authentication logic here
-    } else {
+    if (email.isEmpty && password.isEmpty) {
       Fluttertoast.showToast(
         msg: 'Please enter email and password',
         toastLength: Toast.LENGTH_SHORT,
@@ -28,7 +25,8 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: Colors.red,
         textColor: Colors.white,
       );
-    }
+      // You can add your authentication logic here
+    } else {}
   }
 
   @override
@@ -64,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 30),
 
-            // Login Button
+          // Login Button
             ElevatedButton(
               onPressed: _login,
               child: Text('Login', style: TextStyle(fontSize: 18)),
@@ -72,7 +70,27 @@ class _LoginPageState extends State<LoginPage> {
                 padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
               ),
             ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Don't have an account? "),
+                GestureDetector(
+                  onTap: () =>Navigator.pushNamed(context, '/sign_page'),
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
           ],
+          
         ),
       ),
     );

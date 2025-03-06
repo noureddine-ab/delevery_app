@@ -28,6 +28,15 @@ class _ClientPageState extends State<ClientPage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if (index==0){
+        Navigator.pushNamed(context, '/client_page');
+      }
+      else if (index==2){
+          Navigator.pushNamed(context, '/profile_page');
+      }
+      else if (index==3) {
+        Navigator.pushNamed(context, '/login_page');
+      }
     });
   }
 
@@ -200,17 +209,14 @@ class _ClientPageState extends State<ClientPage> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
+        currentIndex: 0,
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            label: 'Notifications',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Add'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.login), label: 'Login'),
         ],
       ),
     );

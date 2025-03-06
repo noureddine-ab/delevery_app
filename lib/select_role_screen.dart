@@ -20,7 +20,7 @@ class SelectRoleScreen extends StatelessWidget {
                 // Delivery Man Option
                 _buildRoleOption(
                   context,
-                  imagePath: 'assets/delivery.png',
+                  imagePath: 'assets/delivery.jpg',
                   label: 'Delivery Man',
                   role: 'Delivery Man',
                 ),
@@ -68,7 +68,7 @@ class SelectRoleScreen extends StatelessWidget {
             content: Text('You selected: $role'),
             actions: [
               TextButton(
-                onPressed: () => Navigator.pop(context),
+                onPressed: () => Navigator.pushNamed(context, '/client_page'),
                 child: Text('OK'),
               ),
             ],

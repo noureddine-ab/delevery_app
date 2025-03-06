@@ -30,6 +30,7 @@ class _SignUpPageState extends State<SignUpPage> {
         email.isEmpty ||
         password.isEmpty ||
         phone.isEmpty ||
+        location.isEmpty ||
         _selectedRole == null) {
       Fluttertoast.showToast(
         msg: 'Please fill all fields and select a role',
@@ -48,6 +49,7 @@ class _SignUpPageState extends State<SignUpPage> {
         backgroundColor: Colors.green,
         textColor: Colors.white,
       );
+      Navigator.pushNamed(context, '/client_page');
 
       // You can add your sign-up logic here (e.g., save to database)
     }
